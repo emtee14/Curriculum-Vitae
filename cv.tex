@@ -1,0 +1,153 @@
+%----------------------------------------------------------------------------------------
+%	DOCUMENT DEFINITION
+%----------------------------------------------------------------------------------------
+
+% article class because we want to fully customize the page and not use a cv template
+\documentclass[a4paper,10.9pt]{article}
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES
+%----------------------------------------------------------------------------------------
+\usepackage{url}
+\usepackage{parskip} 	
+
+%other packages for formatting
+\RequirePackage{color}
+\RequirePackage{graphicx}
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage[a4paper, top=0.5cm, bottom=0.5cm, left=1.5cm, right=1.5cm]{geometry}
+
+%tabularx environment
+\usepackage{tabularx}
+
+%for lists within experience section
+\usepackage{enumitem}
+
+% centred version of 'X' col. type
+\newcolumntype{C}{>{\centering\arraybackslash}X} 
+
+%to prevent spillover of tabular into next pages
+\usepackage{supertabular}
+\usepackage{tabularx}
+\newlength{\fullcollw}
+\setlength{\fullcollw}{0.47\textwidth}
+
+%custom \section
+\usepackage{titlesec}				
+\usepackage{multicol}
+\usepackage{multirow}
+
+%CV Sections inspired by: 
+%http://stefano.italians.nl/archives/26
+\titleformat{\section}{\Large\scshape\raggedright}{}{0em}{}[\titlerule]
+\titlespacing{\section}{0pt}{10pt}{10pt}
+
+%for publications
+\usepackage[style=authoryear,sorting=ynt, maxbibnames=2]{biblatex}
+
+%Setup hyperref package, and colours for links
+\usepackage[unicode, draft=false]{hyperref}
+\definecolor{linkcolour}{rgb}{0,0.2,0.6}
+\hypersetup{colorlinks,breaklinks,urlcolor=linkcolour,linkcolor=linkcolour}
+\addbibresource{citations.bib}
+\setlength\bibitemsep{1em}
+
+%for social icons
+\usepackage{fontawesome5}
+
+%debug page outer frames
+%\usepackage{showframe}
+
+
+% job listing environments
+\newenvironment{jobshort}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    }
+    {
+    }
+
+\newenvironment{joblong}[2]
+    {
+    \begin{tabularx}{\linewidth}{@{}l X r@{}}
+    \textbf{#1} & \hfill &  #2 \\[3.75pt]
+    \end{tabularx}
+    \begin{minipage}[t]{\linewidth}
+    \begin{itemize}[nosep,after=\strut, leftmargin=1em, itemsep=3pt,label=--]
+    }
+    {
+    \end{itemize}
+    \end{minipage}    
+    }
+
+
+
+%----------------------------------------------------------------------------------------
+%	BEGIN DOCUMENT
+%----------------------------------------------------------------------------------------
+\begin{document}
+
+% non-numbered pages
+\pagestyle{empty} 
+
+%----------------------------------------------------------------------------------------
+%	TITLE
+%----------------------------------------------------------------------------------------
+\begin{tabularx}{\linewidth}{@{} C @{}}
+\Huge{Morgan Thomas} \\[7.5pt]
+\href{https://github.com/emtee14}{\raisebox{-0.05\height}\faGithub\ emtee14} \ $|$ \ 
+\href{https://linkedin.com/in/morgan-thomas14}{\raisebox{-0.05\height}\faLinkedin\ morgan-thomas14} \ $|$ \ 
+\href{https://morganthomas.uk}{\raisebox{-0.05\height}\faGlobe \ morganthomas.uk} \ $|$ \ 
+\href{mailto:sc23mt2@leeds.ac.uk}{\raisebox{-0.05\height}\faEnvelope \ sc23mt2@leeds.ac.uk}  \\ 
+\href{tel:+447853983405}{\raisebox{-0.05\height}\faMobile \ +44 7853 983405} \\
+\end{tabularx}
+\section{Education}
+\begin{tabularx}{\linewidth}{@{}l X@{}}	
+2023 -- 2026 & BSc Computer Science at \textbf{University of Leeds} \hfill \normalsize  \\
+2021 -- 2023 & A-Levels at \textbf{Christleton High School} in Maths, Computer Science, and Physics \hfill (A,A,B) \\ 
+& Extended Project Qualification - Developing a Crypto Currency (A*) \\
+\end{tabularx}
+%Experience
+\section{Experience}
+\begin{joblong}{Head of the Gryphon Project - Leeds University Rocketry Association}{Mar 2025 -- present}
+    \item Leading a 25+ person engineering team to develop one of the UK's first student liquid rockets, having led the UK’s largest non-commercial rocket launch in June 2025.
+    \item Authoring and reviewing technical documentation, performing design reviews, and implementing system-level requirements to ensure mission and safety compliance.
+    \item Oversee a £15,000+ budget of university grants and partner donations across five sub-teams, managing procurement and manufacturing processes
+\end{joblong}
+\begin{joblong}{Flight Dynamics Lead - Leeds University Rocketry Association}{Sept 2024 -- Mar 2025}
+    \item Produced and managed the UK’s first student safety case for a Large Rocket Permission submitted to the Civil Aviation Authority.
+    \item Developed a simulation system using RocketPy to determine optimal launch windows and evaluate go/no-go from a custom weather metric generated using GFS and ECMWF forecasts.
+    \item Added MPI parallelisation to RocketPy’s Monte Carlo simulations, enabling execution of 250,000 runs on the University’s HPC cluster.
+    \item Automated parametric studies in RasAero II, optimising the rocket to achieve speeds of Mach 3.5 with an apogee of 160,000ft.
+\end{joblong}
+%Projects
+\section{Projects}
+\begin{joblong}{Detection and Tracking using Motion Extraction and Voxel Projection}{Ongoing}
+    \item Designing and implementing a distributed camera network to detect, track, and identify low-observable aerial objects beyond radar visibility.
+    \item Developing a near real-time detection pipeline to aggregate sensor streams, performing tracking and state estimation.
+    \item Implementing a sharded processing architecture to enable scalable real-time analysis across large geographic areas.
+    \item Optimising the detection algorithm using simulated data from programmatically rendered scenes in Blender.
+\end{joblong}
+\begin{joblong}{XRTS - Flight and Trajectory Simulator}{\href{https://github.com/emtee14/xrts}{GitHub}}
+    \item Developed a 6-degree-of-freedom trajectory simulator in Rust for rocket flight and recovery.
+    \item Integrated with data produced from existing simulation software to simulate flights up to Mach 25.
+    \item Added functionality to integrate with weather forecasting systems to simulate flight paths and determine landing areas.
+\end{joblong}
+\begin{joblong}{House Stats - Full-Stack Data Analytics Platform for the UK Housing Market}{\href{https://github.com/House-Stats}{GitHub}}
+    \item Designed and built a web-based analytics platform for visualising and analysing UK Land Registry housing data.
+    \item Engineered a distributed data-processing pipeline using Celery, Polars, and PostgreSQL, enabling sub-second analysis across 26M+ rows.
+    \item Deployed and maintained a fully self-hosted infrastructure using Proxmox VMs and Docker containers to run the web server, PostgreSQL database, Celery cluster, and Kafka, ensuring reliability and scalability.
+    \item Built data-analysis methods to remove anomalies and compute year-on-year price changes, highlighting seasonal trends in UK house prices that short-term comparisons miss.
+\end{joblong}
+
+\section{Interests \& Skills}
+\centering
+\begin{tabularx}{0.85\linewidth}{c c c c}
+    Python &  Rust & Embedded Development & Physical Simulations (6-DoF, CFD) \\
+    C  &  Java & Linux Administration & Classic Car Restoration \\
+    Javascript & Web Development & Cycling & Rocketry \\
+\end{tabularx}
+
+\end{document}
