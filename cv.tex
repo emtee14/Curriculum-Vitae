@@ -2,7 +2,7 @@
 %	DOCUMENT DEFINITION
 %----------------------------------------------------------------------------------------
 
-% article class because we want to fully customize the page and not use a cv template
+% article class because we want to fully customise the page and not use a CV template
 \documentclass[a4paper,10.9pt]{article}
 
 %----------------------------------------------------------------------------------------
@@ -107,7 +107,7 @@
 \begin{tabularx}{\linewidth}{@{}l X@{}}	
 2023 -- 2026 & BSc Computer Science at \textbf{University of Leeds} \hfill \normalsize  \\
 2021 -- 2023 & A-Levels at \textbf{Christleton High School} in Maths, Computer Science, and Physics \hfill (A,A,B) \\ 
-& Extended Project Qualification - Developing a Crypto Currency (A*) \\
+& Extended Project Qualification - Developing a Crypto Currency \hfill (A*) \\
 \end{tabularx}
 %Experience
 \section{Experience}
@@ -124,16 +124,18 @@
 \end{joblong}
 %Projects
 \section{Projects}
-\begin{joblong}{Detection and Tracking using Motion Extraction and Voxel Projection}{Ongoing}
+\begin{joblong}{Investigating Real-Time Data Fusion for Detection of Low-Observable Aerial Objects}{Ongoing}
     \item Designing and implementing a distributed camera network to detect, track, and identify low-observable aerial objects beyond radar visibility.
     \item Developing a near real-time detection pipeline to aggregate sensor streams, performing tracking and state estimation.
     \item Implementing a sharded processing architecture to enable scalable real-time analysis across large geographic areas.
     \item Optimising the detection algorithm using simulated data from programmatically rendered scenes in Blender.
 \end{joblong}
-\begin{joblong}{XRTS - Flight and Trajectory Simulator}{\href{https://github.com/emtee14/xrts}{GitHub}}
-    \item Developed a 6-degree-of-freedom trajectory simulator in Rust for rocket flight and recovery.
-    \item Integrated with data produced from existing simulation software to simulate flights up to Mach 25.
-    \item Added functionality to integrate with weather forecasting systems to simulate flight paths and determine landing areas.
+\begin{joblong}{Rust Flight and Trajectory Simulator}{Ongoing}
+% \href{https://github.com/emtee14/xrts}{GitHub}
+    \item Developing a 6-degree-of-freedom trajectory simulator in Rust for rocket flight and recovery.
+    \item Integrated with data produced from existing software to simulate flights up to Mach 25.
+    \item Produce distributions of an area's climate using ERA5 reanalysis forecast data
+    \item Executed Monte Carlo simulations using generated weather distributions and vehicle parameters to determine landing areas and apogee
 \end{joblong}
 \begin{joblong}{House Stats - Full-Stack Data Analytics Platform for the UK Housing Market}{\href{https://github.com/House-Stats}{GitHub}}
     \item Designed and built a web-based analytics platform for visualising and analysing UK Land Registry housing data.
@@ -147,7 +149,7 @@
 \begin{tabularx}{0.85\linewidth}{c c c c}
     Python &  Rust & Embedded Development & Physical Simulations (6-DoF, CFD) \\
     C  &  Java & Linux Administration & Classic Car Restoration \\
-    Javascript & Web Development & Cycling & Rocketry \\
+    Javascript & Web Development & Cycling & Rocketry \\ 
 \end{tabularx}
 
 \end{document}
